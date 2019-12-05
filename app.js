@@ -9,17 +9,15 @@ const path = require('path');
 const flash = require('connect-flash');
 const cookieParser = require('cookie-parser');
 
-// init passport
-const passport = require('passport')
-
 // init logger
 const logger = require('morgan');
 
 // init mongo
 const mongoose = require('mongoose')
-const session = require('express-session')
-const MongoStore = require('connect-mongo')(session);
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/we-re-getting-married')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/we-re-getting-married', {
+  useNewUrlParser: true,
+  useCreateIndex: true
+})
 
 const app = express();
 
@@ -34,17 +32,8 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({
-  secret: 'qcsm',
-  resave: false,
-  saveUninitialized: false,
-  store: new MongoStore({ mongooseConnection: mongoose.connection })
-}));
 app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
 
-require('./config/passport')(passport);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 

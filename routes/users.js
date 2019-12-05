@@ -1,31 +1,19 @@
 var express = require('express');
 var router = express.Router();
-const passport = require('passport')
+const User = require('../models/User')
 
-function isLoggedIn(req, res, next) {
-  // if user is authenticated in the session, carry on
-  if (req.isAuthenticated())
-      return next();
-
-  // if they aren't redirect them to the home page
-  res.redirect('/login');
-}
-
-router.get('/', isLoggedIn, (req,res) => {
-    res.render('home',{
-        user : req.user
-    });
+router.post('/register', async (req, res) => {
+    // Create a new user
+    try {
+        const user = new User(req.body)
+        await user.save()
+        const token = await user.generateAuthToken()
+        res.status(201).send({ user, token })
+    } catch (error) {
+        console.log(error)
+        res.status(400).send(error)
+    }
 });
-
-router.get('/register',(req,res) => {
-    res.render('register');
-})
-
-router.post('/register', passport.authenticate('local-signup', {
-    successRedirect : '/', // redirect to the secure profile section
-    failureRedirect : '/users/register', // redirect back to the signup page if there is an error
-    failureFlash : true // allow flash messages
-}));
 
 router.get('/logout', function(req, res) {
     req.logout();
@@ -36,11 +24,19 @@ router.get('/login',(req,res) => {
   res.render('login')
 });
 
-router.post('/login',passport.authenticate('local-login',{
-      successRedirect : '/users',
-      failureRedirect : '/users/login',
-      failureFlash: true
-  }
-));
+router.post('/login', async(req, res) => {
+    //Login a registered user
+    try {
+        const { email, password } = req.body
+        const user = await User.findByCredentials(email, password)
+        if (!user) {
+            return res.status(401).send({error: 'Login failed! Check authentication credentials'})
+        }
+        const token = await user.generateAuthToken()
+        res.send({ user, token })
+    } catch (error) {
+        res.status(400).send(error)
+    }
+});
 
 module.exports = router
