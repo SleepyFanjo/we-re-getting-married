@@ -50,6 +50,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: $color-quentin;
+  background: linear-gradient(0deg, $color-quentin 13%, $color-solene 56%);
+  overflow-y: auto;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 code {
