@@ -68,7 +68,7 @@
 
     > i {
       font-size: 40px;
-      color: $color-primary;
+      color: $color-secondary;
     }
 
     &:hover > i {
@@ -82,7 +82,7 @@
     top: 0;
 
     & > div {
-      background: $color-primary;
+      background: $color-secondary;
     }
   }
 }
