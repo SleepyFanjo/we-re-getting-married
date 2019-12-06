@@ -1,0 +1,88 @@
+.Register {
+  &--container {
+    background: $color-secondary;
+    color: $color-primary;
+    background: linear-gradient(
+      0deg,
+      $color-secondary 10%,
+      $color-solene 30%,
+      $color-solene 70%,
+      $color-secondary 90%
+    );
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+    > p {
+      min-height: 30vh;
+      display: flex;
+      max-width: 600px;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      margin: 0;
+      flex: 1;
+
+      &::selection {
+        -webkit-text-fill-color: $color-secondary;
+        background: #e8bac1;
+      }
+    }
+  }
+
+  &--input-container {
+    -webkit-text-fill-color: initial;
+    width: 60%;
+    position: relative;
+  }
+
+  &--input {
+    height: 80px;
+    width: 100%;
+    display: block;
+    line-height: 80px;
+    font-size: 35px;
+    padding: 0 100px 0 40px;
+    text-align: left;
+  }
+
+  &--submit {
+    position: absolute;
+    right: 20px;
+    background: none;
+    border: none;
+    top: 19px;
+    outline: none;
+    cursor: pointer;
+
+    > i {
+      font-size: 40px;
+      color: $color-primary;
+    }
+
+    &:hover > i {
+      font-weight: bold;
+    }
+  }
+
+  &--loader {
+    position: absolute;
+    right: 20px;
+    top: 0;
+
+    & > div {
+      background: $color-primary;
+    }
+  }
+}
