@@ -4,10 +4,10 @@
     color: $color-primary;
     background: linear-gradient(
       0deg,
-      $color-secondary 10%,
-      $color-solene 30%,
-      $color-solene 70%,
-      $color-secondary 90%
+      $color-solene 10%,
+      $color-secondary 30%,
+      $color-secondary 70%,
+      $color-solene 90%
     );
     background-size: cover;
     background-attachment: fixed;
@@ -55,32 +55,20 @@
     font-size: 35px;
     padding: 0 100px 0 40px;
     text-align: left;
+    margin-bottom: 20px;
+  }
+
+  &--error {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: red;
   }
 
   &--submit {
-    position: absolute;
-    right: 20px;
-    background: none;
-    border: none;
-    top: 19px;
-    outline: none;
-    cursor: pointer;
-
-    > i {
-      font-size: 40px;
-      color: $color-secondary;
-    }
-
-    &:hover > i {
-      font-weight: bold;
-    }
   }
 
   &--loader {
-    position: absolute;
-    right: 20px;
-    top: 0;
-
+    height: 55px;
     & > div {
       background: $color-secondary;
     }
