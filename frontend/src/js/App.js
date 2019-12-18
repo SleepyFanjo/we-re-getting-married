@@ -11,9 +11,15 @@ const App = () => {
     <Router>
       <Suspense fallback={<StyledLoader />}>
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/register" component={Register} />
-          <Route path="/registered" component={Registered} />>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/registered">
+            <Registered />
+          </Route>
         </Switch>
       </Suspense>
     </Router>
