@@ -1,28 +1,13 @@
 .Register {
   &--container {
-    background: $color-secondary;
-    color: $color-primary;
-    background: linear-gradient(
-      0deg,
-      $color-solene 10%,
-      $color-secondary 30%,
-      $color-secondary 70%,
-      $color-solene 90%
-    );
-    background-size: cover;
-    background-attachment: fixed;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: $color-secondary;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
+    min-height: 100vh;
+    padding-top: 30px;
 
     > p {
       min-height: 30vh;
@@ -33,6 +18,11 @@
       font-size: 30px;
       margin: 0;
       flex: 1;
+      padding: 0 15px;
+
+      @media screen and (max-width: 550px) {
+        font-size: 24px;
+      }
 
       &::selection {
         -webkit-text-fill-color: $color-secondary;
@@ -43,8 +33,11 @@
 
   &--input-container {
     -webkit-text-fill-color: initial;
-    width: 60%;
+    width: 100%;
+    max-width: 700px;
     position: relative;
+    margin: 15px 0;
+    padding: 0 15px;
   }
 
   &--input {
@@ -53,9 +46,13 @@
     display: block;
     line-height: 80px;
     font-size: 35px;
-    padding: 0 100px 0 40px;
+    padding: 0 20px 0 20px;
     text-align: left;
     margin-bottom: 20px;
+
+    @media screen and (max-width: 550px) {
+      font-size: 24px;
+    }
   }
 
   &--error {

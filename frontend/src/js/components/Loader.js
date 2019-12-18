@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Loader = ({ className, ...rest }) => (
+export const SimpleLoader = ({ className, ...rest }) => (
   <div className={`Loader ${className ? className : ''}`} {...rest}>
     <div></div>
     <div></div>
@@ -9,4 +9,6 @@ const Loader = ({ className, ...rest }) => (
   </div>
 )
 
-export default Loader
+export const StyledLoader = ({ className, ...rest }) => (
+  <div className={`StyledLoader ${className ? className : ''}`} {...rest}></div>
+)

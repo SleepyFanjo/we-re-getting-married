@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
-import Loader from './Loader'
+import { SimpleLoader as Loader } from './Loader'
 
 const postCredentials = (email, name) => {
   return fetch('/users/temporary', {
