@@ -1,28 +1,51 @@
-import React, { Suspense, lazy } from 'react'
+import React, { Suspense, lazy, useContext } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom'
+
 import { StyledLoader } from './components/Loader'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import JwtContext, { JwtProvider } from './JwtContext'
 
 const Home = lazy(() => import('./pages/Home.js'))
 const Register = lazy(() => import('./pages/Register.js'))
 const Registered = lazy(() => import('./pages/Registered.js'))
+const Login = lazy(() => import('./pages/Login.js'))
+
+const ProtectedRoute = ({ children, ...rest }) => {
+  const { jwtToken } = useContext(JwtContext)
+  return (
+    <Route {...rest}>{jwtToken ? children : <Redirect to="/login" />}</Route>
+  )
+}
 
 const App = () => {
   return (
-    <Router>
-      <Suspense fallback={<StyledLoader />}>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/registered">
-            <Registered />
-          </Route>
-        </Switch>
-      </Suspense>
-    </Router>
+    <JwtProvider>
+      <Router>
+        <Suspense fallback={<StyledLoader />}>
+          <Switch>
+            <ProtectedRoute exact path="/">
+              <Home />
+            </ProtectedRoute>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/logout">
+              <div>Logout</div>
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/registered">
+              <Registered />
+            </Route>
+          </Switch>
+        </Suspense>
+      </Router>
+    </JwtProvider>
   )
 }
 

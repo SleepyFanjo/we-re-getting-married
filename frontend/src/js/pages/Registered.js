@@ -4,12 +4,12 @@ import logoNoBorder from '../../assets/logo-no-border.png'
 const Checkmark = () => (
   <div className="Registered--checkmarkContainer">
     <svg
-      class="Registered--checkmark"
+      className="Registered--checkmark"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 52 52"
     >
       <circle
-        class="Registered--checkmarkCircle"
+        className="Registered--checkmarkCircle"
         cx="26"
         cy="26"
         r="25"
