@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 
 const JwtContext = React.createContext(null)
 
 export const JwtProvider = ({ children }) => {
-  const [jwtToken, setJwtToken] = useState(null)
+  const [jwtToken, setJwtToken] = useState(localStorage.getItem('jwtToken'))
 
-  useEffect(() => {
-    const jwt = localStorage.getItem('jwtToken')
-    if (jwt) {
-      setJwtToken(jwt)
-    }
-  }, [])
-
+  console.log(jwtToken)
   return (
     <JwtContext.Provider
       value={{

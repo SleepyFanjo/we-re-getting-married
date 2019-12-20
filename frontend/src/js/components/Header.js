@@ -5,8 +5,9 @@ const Header = ({ children }) => {
   return (
     <>
       <div className="Header">
-        <img src={logo} className="Header--logo" />
+        <img alt="Logo" src={logo} className="Header--logo" />
       </div>
+      <div className="Header--padder" />
       {children}
     </>
   )

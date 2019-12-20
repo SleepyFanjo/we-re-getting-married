@@ -1,0 +1,73 @@
+.Login {
+  &--container {
+    color: $color-secondary;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: calc(100vh - 80px);
+    padding-top: 30px;
+
+    > p {
+      min-height: 30vh;
+      display: flex;
+      max-width: 600px;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      margin: 0;
+      flex: 1;
+      padding: 0 15px;
+
+      @media screen and (max-width: 550px) {
+        font-size: 24px;
+      }
+
+      &::selection {
+        -webkit-text-fill-color: $color-secondary;
+        background: #e8bac1;
+      }
+    }
+  }
+
+  &--input-container {
+    -webkit-text-fill-color: initial;
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    margin: 15px 0;
+    padding: 0 15px;
+  }
+
+  &--input {
+    height: 80px;
+    width: 100%;
+    display: block;
+    line-height: 80px;
+    font-size: 35px;
+    padding: 0 20px 0 20px;
+    text-align: left;
+    margin-bottom: 20px;
+
+    @media screen and (max-width: 550px) {
+      font-size: 24px;
+    }
+  }
+
+  &--error {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: red;
+  }
+
+  &--submit {
+  }
+
+  &--loader {
+    height: 55px;
+    & > div {
+      background: $color-secondary;
+    }
+  }
+}

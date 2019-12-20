@@ -13,6 +13,7 @@ const Home = lazy(() => import('./pages/Home.js'))
 const Register = lazy(() => import('./pages/Register.js'))
 const Registered = lazy(() => import('./pages/Registered.js'))
 const Login = lazy(() => import('./pages/Login.js'))
+const Logout = lazy(() => import('./pages/Logout.js'))
 
 const ProtectedRoute = ({ children, ...rest }) => {
   const { jwtToken } = useContext(JwtContext)
@@ -34,7 +35,7 @@ const App = () => {
               <Login />
             </Route>
             <Route path="/logout">
-              <div>Logout</div>
+              <Logout />
             </Route>
             <Route path="/register">
               <Register />
