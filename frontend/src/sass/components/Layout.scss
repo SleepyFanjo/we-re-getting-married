@@ -59,11 +59,11 @@
   }
 
   & > .material-icons {
-    font-size: 45px;
+    @include fluid-type(font-size, 320px, 600px, 30px, 45px);
   }
 
   & > .Footer--linkTitle {
-    font-size: 20px;
+    @include fluid-type(font-size, 320px, 600px, 14px, 22px);
   }
 }
 

@@ -1,6 +1,9 @@
 @charset "UTF-8";
 @import-normalize;
+@import 'fluid_type';
 @import 'settings';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
 @font-face {
   font-family: 'Material Icons';
@@ -95,6 +98,7 @@ input {
   border: none;
   background: $color-secondary;
   outline: none;
+  text-decoration: none;
   font-size: 30px;
   color: white;
   padding: 10px 20px;
@@ -109,8 +113,9 @@ input {
 }
 
 @import 'components/Loader';
+@import 'components/Layout';
 
 @import 'components/Register';
 @import 'components/Login';
 @import 'components/Registered';
-@import 'components/Layout';
+@import 'components/Home';

@@ -1,0 +1,16 @@
+.HomeEmpty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 180px);
+
+  & > p {
+    text-align: center;
+    color: $color-primary;
+    font-size: 30px;
+    font-family: 'Roboto';
+    font-weight: 500;
+    padding: 0 15px;
+  }
+}
