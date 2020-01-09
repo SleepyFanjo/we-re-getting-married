@@ -1,0 +1,85 @@
+.Header {
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Header--padder {
+  margin-top: 100px;
+}
+
+.Header--logo {
+  height: 70px;
+}
+
+.Footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $color-footer;
+}
+
+.Footer--link {
+  width: 120px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-decoration: none;
+  text-align: center;
+  color: $color-primary;
+  position: relative;
+
+  & + .Footer--link {
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0px;
+      top: 15px;
+      height: 70px;
+      width: 1px;
+      background-color: $color-primary;
+    }
+  }
+
+  &:hover {
+    color: $color-secondary;
+  }
+
+  & > .material-icons {
+    font-size: 45px;
+  }
+
+  & > .Footer--linkTitle {
+    font-size: 20px;
+  }
+}
+
+.Footer--link.selected {
+  color: $color-white;
+  background: $color-primary;
+
+  &:after {
+    content: unset;
+  }
+
+  & + .Footer--link:after {
+    content: unset;
+  }
+
+  &:hover {
+    color: $color-white;
+  }
+}

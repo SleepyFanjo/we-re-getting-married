@@ -5,7 +5,6 @@ const JwtContext = React.createContext(null)
 export const JwtProvider = ({ children }) => {
   const [jwtToken, setJwtToken] = useState(localStorage.getItem('jwtToken'))
 
-  console.log(jwtToken)
   return (
     <JwtContext.Provider
       value={{

@@ -1,8 +1,8 @@
 import React from 'react'
 import Layout from '../components/Layout'
 
-const Home = () => {
+const Transport = () => {
   return <Layout></Layout>
 }
 
-export default Home
+export default Transport

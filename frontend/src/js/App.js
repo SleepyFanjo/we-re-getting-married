@@ -10,6 +10,9 @@ import { StyledLoader } from './components/Loader'
 import JwtContext, { JwtProvider } from './JwtContext'
 
 const Home = lazy(() => import('./pages/Home.js'))
+const Guest = lazy(() => import('./pages/Guest.js'))
+const Beds = lazy(() => import('./pages/Beds.js'))
+const Transport = lazy(() => import('./pages/Transport.js'))
 const Register = lazy(() => import('./pages/Register.js'))
 const Registered = lazy(() => import('./pages/Registered.js'))
 const Login = lazy(() => import('./pages/Login.js'))
@@ -30,6 +33,15 @@ const App = () => {
           <Switch>
             <ProtectedRoute exact path="/">
               <Home />
+            </ProtectedRoute>
+            <ProtectedRoute exact path="/guest">
+              <Guest />
+            </ProtectedRoute>
+            <ProtectedRoute exact path="/transport">
+              <Transport />
+            </ProtectedRoute>
+            <ProtectedRoute exact path="/beds">
+              <Beds />
             </ProtectedRoute>
             <Route path="/login">
               <Login />

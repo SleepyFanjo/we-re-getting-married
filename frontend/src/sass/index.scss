@@ -56,11 +56,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html,
-body {
-  height: 100%;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -118,4 +113,4 @@ input {
 @import 'components/Register';
 @import 'components/Login';
 @import 'components/Registered';
-@import 'components/Header';
+@import 'components/Layout';
