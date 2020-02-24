@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useContext } from 'react'
+import React, { Suspense, useContext } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -8,15 +8,7 @@ import {
 
 import { StyledLoader } from './components/Loader'
 import JwtContext, { JwtProvider } from './JwtContext'
-
-const Home = lazy(() => import('./pages/Home.js'))
-const Guest = lazy(() => import('./pages/Guest.js'))
-const Beds = lazy(() => import('./pages/Beds.js'))
-const Transport = lazy(() => import('./pages/Transport.js'))
-const Register = lazy(() => import('./pages/Register.js'))
-const Registered = lazy(() => import('./pages/Registered.js'))
-const Login = lazy(() => import('./pages/Login.js'))
-const Logout = lazy(() => import('./pages/Logout.js'))
+import routes from './routes'
 
 const ProtectedRoute = ({ children, ...rest }) => {
   const { jwtToken } = useContext(JwtContext)
@@ -31,30 +23,18 @@ const App = () => {
       <Router>
         <Suspense fallback={<StyledLoader />}>
           <Switch>
-            <ProtectedRoute exact path="/">
-              <Home />
-            </ProtectedRoute>
-            <ProtectedRoute exact path="/guest">
-              <Guest />
-            </ProtectedRoute>
-            <ProtectedRoute exact path="/transport">
-              <Transport />
-            </ProtectedRoute>
-            <ProtectedRoute exact path="/beds">
-              <Beds />
-            </ProtectedRoute>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/logout">
-              <Logout />
-            </Route>
-            <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/registered">
-              <Registered />
-            </Route>
+            {routes.map(route => {
+              const RouteComponent = route.private ? ProtectedRoute : Route
+
+              return (
+                <RouteComponent
+                  key={route.path}
+                  exact={route.exact}
+                  path={route.path}
+                  component={route.component}
+                />
+              )
+            })}
           </Switch>
         </Suspense>
       </Router>

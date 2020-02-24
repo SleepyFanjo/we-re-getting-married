@@ -4,7 +4,7 @@ import LoginForm from '../components/LoginForm'
 
 const Login = () => {
   return (
-    <Layout>
+    <Layout noFooter>
       <LoginForm />
     </Layout>
   )
