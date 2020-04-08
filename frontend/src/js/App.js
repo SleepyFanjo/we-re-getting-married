@@ -11,9 +11,11 @@ import JwtContext, { JwtProvider } from './JwtContext'
 import routes from './routes'
 
 const ProtectedRoute = ({ children, ...rest }) => {
-  const { jwtToken } = useContext(JwtContext)
+  const { jsonWebToken } = useContext(JwtContext)
   return (
-    <Route {...rest}>{jwtToken ? children : <Redirect to="/login" />}</Route>
+    <Route {...rest}>
+      {jsonWebToken ? children : <Redirect to="/login" />}
+    </Route>
   )
 }
 

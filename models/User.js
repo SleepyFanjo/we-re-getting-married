@@ -7,9 +7,12 @@ let userschema = new Schema({
     email : String,
     password : String,
     tokens: [{
-        token: {
-            type: String
-        }
+        type: String
+    }],
+    needBus: {type: Boolean, default: false},
+    peoples: [{
+        name: {type: String},
+        attending: {type: String}
     }]
 });
 
@@ -26,7 +29,7 @@ userschema.methods.generateAuthToken = async function() {
     // Generate an auth token for the user
     const user = this
     const token = jwt.sign({_id: user._id}, process.env.JWT_KEY || 'dev')
-    user.tokens = user.tokens.concat({token})
+    user.tokens = user.tokens.concat(token)
     await user.save()
     return token
 }
@@ -44,6 +47,11 @@ userschema.statics.findByCredentials = async (email, password) => {
     return user
 }
 
+userschema.statics.findByJsonWebToken = async (jsonWebToken) => {
+    const user = await User.findOne({tokens: jsonWebToken})
+
+    return user
+}
 
 let User = mongoose.model('users', userschema);
 

@@ -16,7 +16,8 @@ const logger = require('morgan');
 const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/we-re-getting-married', {
   useNewUrlParser: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useUnifiedTopology: true
 })
 
 const app = express();
@@ -35,8 +36,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(flash());
 
 const usersRouter = require('./routes/users');
+const roomsRouter = require('./routes/rooms');
 
 app.use('/users', usersRouter);
+app.use('/rooms', roomsRouter);
 
 app.use(express.static("public"));
 app.use('/*', express.static("public"));

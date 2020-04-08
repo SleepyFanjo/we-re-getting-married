@@ -51,4 +51,39 @@ router.post('/login', async(req, res) => {
     }
 });
 
+router.post('/me', async(req, res) => {
+    try {
+        const { jsonWebToken, ...rest } = req.body
+        const user = await User.findByJsonWebToken(jsonWebToken)
+
+        if (!user) {
+            res.status(400).send('')
+        }
+
+        user = {
+            ...user,
+            ...rest
+        }
+
+        await user.save()
+    } catch (error) {
+        res.status(400).send(error)
+    }
+})
+
+router.get('/me', async(req, res) => {
+    try {
+        const { jsonWebToken } = req.query
+        console.log(jsonWebToken)
+        const user = await User.findByJsonWebToken(jsonWebToken)
+        if (!user) {
+            res.redirect('/logout')
+        }
+
+        res.send({ user })
+    } catch (error) {
+        res.status(400).send(error)
+    }
+})
+
 module.exports = router

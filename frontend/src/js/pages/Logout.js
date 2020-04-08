@@ -3,8 +3,8 @@ import JwtContext from '../JwtContext'
 import { Redirect } from 'react-router-dom'
 
 const Logout = () => {
-  const { setJwtToken } = useContext(JwtContext)
-  setJwtToken(null)
+  const { setJsonWebToken } = useContext(JwtContext)
+  setJsonWebToken(null)
   localStorage.removeItem('jwtToken')
 
   return <Redirect to="/" />

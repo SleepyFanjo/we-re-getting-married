@@ -18,7 +18,7 @@ const postCredentials = (email, password) => {
 
 const LoginForm = () => {
   const history = useHistory()
-  const { setJwtToken } = useContext(JwtContext)
+  const { setJsonWebToken, setUser } = useContext(JwtContext)
   const [password, setPassword] = useState('')
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
@@ -34,7 +34,8 @@ const LoginForm = () => {
       if (data.error) {
         setError(data.error)
       } else {
-        setJwtToken(data.token)
+        setJsonWebToken(data.token)
+        setUser(data.user)
         localStorage.setItem('jwtToken', data.token)
         history.push('/')
       }

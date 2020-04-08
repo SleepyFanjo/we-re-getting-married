@@ -3,13 +3,21 @@ import React, { useState } from 'react'
 const JwtContext = React.createContext(null)
 
 export const JwtProvider = ({ children }) => {
-  const [jwtToken, setJwtToken] = useState(localStorage.getItem('jwtToken'))
+  const [jsonWebToken, setToken] = useState(localStorage.getItem('jwtToken'))
+  const [user, setUser] = useState(null)
+
+  const setJsonWebToken = token => {
+    setToken(token)
+    setUser(null)
+  }
 
   return (
     <JwtContext.Provider
       value={{
-        jwtToken,
-        setJwtToken
+        jsonWebToken,
+        setJsonWebToken,
+        user,
+        setUser
       }}
     >
       {children}

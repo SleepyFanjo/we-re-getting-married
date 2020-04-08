@@ -1,0 +1,37 @@
+.Guest__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto 0;
+  max-width: 1024px;
+}
+
+.Guest__peopleContainer {
+  display: flex;
+  width: 100%;
+
+  & > div:first-child {
+    width: 200px;
+    text-align: right;
+    padding-right: 10px;
+    color: $color-secondary;
+    font-size: 22px;
+  }
+}
+
+.Guest__intro {
+  padding-top: 30px;
+  text-align: center;
+  color: $color-primary;
+
+  &--heading {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  &--content {
+    font-size: 22px;
+  }
+}
