@@ -3,7 +3,13 @@ import Layout from '../components/Layout'
 import { SimpleLoader } from '../components/Loader'
 import useCurrentUser from '../hooks/useCurrentUser'
 
-const PeopleAttending = ({ people, index, updatedPeople }) => {
+const PeopleAttending = ({ people, index, updatePeople }) => {
+  const checkInput = e => {
+    const { value } = e.target
+
+    updatePeople({ ...people, attending: value }, index)
+  }
+
   return (
     <div className="Guest__peopleContainer">
       <div>{people.name}</div>
@@ -14,9 +20,10 @@ const PeopleAttending = ({ people, index, updatedPeople }) => {
             id={people.name + '-oui'}
             value="oui"
             checked={people.attending === 'oui'}
-            name="attending"
+            name={people.name + '_attending'}
+            onChange={checkInput}
           />
-          <label for={people.name + '-oui'}>Vient</label>
+          <label htmlFor={people.name + '-oui'}>Vient</label>
         </div>
         <div className="Guest__peopleInput">
           <input
@@ -24,9 +31,10 @@ const PeopleAttending = ({ people, index, updatedPeople }) => {
             id={people.name + '-non'}
             value="non"
             checked={people.attending === 'non'}
-            name="attending"
+            name={people.name + '_attending'}
+            onChange={checkInput}
           />
-          <label for={people.name + '-non'}>Ne vient pas</label>
+          <label htmlFor={people.name + '-non'}>Ne vient pas</label>
         </div>
       </div>
     </div>
@@ -34,7 +42,7 @@ const PeopleAttending = ({ people, index, updatedPeople }) => {
 }
 
 const Guest = () => {
-  const [user, updateUser, loading] = useCurrentUser()
+  const [user, loading, updateUser] = useCurrentUser()
   const updatePeople = (updatedPeople, i) => {
     updateUser({
       ...user,

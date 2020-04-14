@@ -14,7 +14,20 @@ let userschema = new Schema({
         name: {type: String},
         attending: {type: String}
     }]
-});
+}, {
+    toObject: {
+      transform: function (doc, ret) {
+        delete ret._id;
+        delete ret.tokens;
+      }
+    },
+    toJSON: {
+      transform: function (doc, ret) {
+        delete ret._id;
+        delete ret.tokens;
+      }
+    }
+  });
 
 userschema.pre('save', async function (next) {
     // Hash the password before saving the user model

@@ -53,20 +53,20 @@ router.post('/login', async(req, res) => {
 
 router.post('/me', async(req, res) => {
     try {
-        const { jsonWebToken, ...rest } = req.body
-        const user = await User.findByJsonWebToken(jsonWebToken)
+        const { jsonWebToken, user } = req.body
+        let userToUpdate = await User.findByJsonWebToken(jsonWebToken)
 
         if (!user) {
-            res.status(400).send('')
+            res.status(400).send('User not found')
         }
 
-        user = {
-            ...user,
-            ...rest
-        }
+        userToUpdate.needBus = user.needBus
+        userToUpdate.peoples = user.peoples
 
-        await user.save()
+        await userToUpdate.save()
+        res.status(200).send({user: userToUpdate})
     } catch (error) {
+        console.log(error)
         res.status(400).send(error)
     }
 })
@@ -74,7 +74,6 @@ router.post('/me', async(req, res) => {
 router.get('/me', async(req, res) => {
     try {
         const { jsonWebToken } = req.query
-        console.log(jsonWebToken)
         const user = await User.findByJsonWebToken(jsonWebToken)
         if (!user) {
             res.redirect('/logout')

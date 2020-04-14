@@ -1,22 +1,62 @@
 .Guest__container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
   margin: 40px auto 0;
   max-width: 1024px;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
 }
 
 .Guest__peopleContainer {
   display: flex;
-  width: 100%;
+  flex-direction: column;
+  padding: 0 30px;
+  border-right: 1px solid $color-primary;
+  width: 33.33%;
+  margin-bottom: 30px;
+
+  &:nth-child(3n) {
+    border-right: none;
+  }
 
   & > div:first-child {
-    width: 200px;
-    text-align: right;
     padding-right: 10px;
-    color: $color-secondary;
+    color: $color-primary;
     font-size: 22px;
+  }
+}
+
+.Guest__peopleSelector {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.Guest__peopleInput {
+  height: 30px;
+
+  & > input {
+    vertical-align: middle;
+    display: none;
+  }
+
+  & > label {
+    vertical-align: middle;
+    color: $color-secondary;
+    font-size: 17px;
+    cursor: pointer;
+
+    &::before {
+      content: 'radio_button_unchecked';
+      font-family: 'Material Icons';
+      vertical-align: top;
+      margin-right: 5px;
+      color: $color-secondary;
+    }
+  }
+
+  & > input:checked + label::before {
+    content: 'radio_button_checked';
   }
 }
 

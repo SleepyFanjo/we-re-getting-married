@@ -33,13 +33,13 @@ const LoginForm = () => {
     postCredentials(email, password).then(data => {
       if (data.error) {
         setError(data.error)
+        setLoading(false)
       } else {
         setJsonWebToken(data.token)
         setUser(data.user)
         localStorage.setItem('jwtToken', data.token)
         history.push('/')
       }
-      setLoading(false)
     })
   }
 
