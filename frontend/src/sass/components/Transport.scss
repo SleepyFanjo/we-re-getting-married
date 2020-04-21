@@ -1,0 +1,44 @@
+.TransportButton {
+  height: 250px;
+  width: 250px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  border: 1px solid $color-primary;
+  color: $color-secondary;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
+    0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+
+  &.selected {
+    background: $color-primary;
+    color: white;
+    cursor: default;
+  }
+}
+
+.TransportButton > i.material-icons {
+  font-size: 60px;
+}
+
+.TransportButton > p {
+  font-size: 25px;
+  text-align: center;
+  height: 56px;
+}
+
+.Transport__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 40px auto 0;
+  max-width: 1024px;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+  justify-content: space-around;
+}

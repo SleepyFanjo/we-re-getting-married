@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from '../components/Layout'
 import { SimpleLoader } from '../components/Loader'
+import NextPageArrow from '../components/NextPageArrow'
 import useCurrentUser from '../hooks/useCurrentUser'
 
 const PeopleAttending = ({ people, index, updatePeople }) => {
@@ -82,6 +83,7 @@ const Guest = () => {
             ))}
         </div>
       )}
+      <NextPageArrow target="/transport" label="En bus, en voiture ?" />
     </Layout>
   )
 }

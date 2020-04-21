@@ -1,0 +1,32 @@
+.NextPageArrow__link {
+  position: fixed;
+  right: 5px;
+  top: 50%;
+  transform: translate(-15px, -50%);
+  text-decoration: none;
+  color: $color-secondary;
+
+  & > span {
+    position: absolute;
+    top: 50%;
+    transform: translate(-80px, -50%);
+    width: 110px;
+    text-align: right;
+  }
+
+  &:hover {
+    animation: 0.4s ease-in 0.2s 2 jumpingArrow;
+  }
+}
+
+@keyframes jumpingArrow {
+  0% {
+    transform: translate(-15px, -50%);
+  }
+  50% {
+    transform: translate(-7px, -50%);
+  }
+  100% {
+    transform: translate(-15px, -50%);
+  }
+}

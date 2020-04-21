@@ -77,10 +77,12 @@ router.get('/me', async(req, res) => {
         const user = await User.findByJsonWebToken(jsonWebToken)
         if (!user) {
             res.redirect('/logout')
+            return
         }
 
         res.send({ user })
     } catch (error) {
+        console.log(error)
         res.status(400).send(error)
     }
 })
