@@ -11,6 +11,9 @@ const TransportButton = ({ selected, onSelect, text, icon }) => (
   >
     <i className="material-icons">{icon}</i>
     <p>{text}</p>
+    {selected ? (
+      <i className="material-icons TransportButton__check">check_circle</i>
+    ) : null}
   </button>
 )
 
@@ -21,8 +24,8 @@ const Transport = () => {
     <Layout>
       <div className="Guest__intro">
         <div className="Guest__intro--heading">
-          Nous souhaitons organiser un transport pour les gens venant de région
-          Parisienne
+          Nous souhaitons organiser un bus au départ de Paris pour ceux qui le
+          souhaitent
         </div>
         <div className="Guest__intro--content">
           Dis nous si tu es intéressé pour venir en bus avec les autres invités
@@ -36,19 +39,29 @@ const Transport = () => {
         <div className="Transport__container">
           <TransportButton
             selected={user.needBus}
-            onSelect={() => {}}
+            onSelect={() => {
+              updateUser({
+                ...user,
+                needBus: true
+              })
+            }}
             text="Trop bien le bus !"
             icon="directions_bus"
           />
           <TransportButton
             selected={!user.needBus}
-            onSelect={() => {}}
-            text="Je viens en voiture"
+            onSelect={() => {
+              updateUser({
+                ...user,
+                needBus: false
+              })
+            }}
+            text="Je me débrouille"
             icon="directions_car"
           />
         </div>
       )}
-      <NextPageArrow target="/beds" label="Et pour dormir&nbsp;?" />
+      <NextPageArrow target="/beds" label="Et sur place&nbsp;?" />
     </Layout>
   )
 }

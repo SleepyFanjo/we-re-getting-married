@@ -10,6 +10,8 @@ let userschema = new Schema({
         type: String
     }],
     needBus: {type: Boolean, default: false},
+    mealPref: String,
+    hasUpdatedInfos: {type: Boolean, default: false},
     peoples: [{
         name: {type: String},
         attending: {type: String}

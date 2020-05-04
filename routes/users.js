@@ -62,6 +62,8 @@ router.post('/me', async(req, res) => {
 
         userToUpdate.needBus = user.needBus
         userToUpdate.peoples = user.peoples
+        userToUpdate.hasUpdatedInfos = user.hasUpdatedInfos
+        userToUpdate.mealPref = user.mealPref
 
         await userToUpdate.save()
         res.status(200).send({user: userToUpdate})

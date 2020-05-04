@@ -1,4 +1,5 @@
 .TransportButton {
+  position: relative;
   height: 250px;
   width: 250px;
   border-radius: 5px;
@@ -20,10 +21,17 @@
     color: white;
     cursor: default;
   }
-}
 
-.TransportButton > i.material-icons {
-  font-size: 60px;
+  i {
+    font-size: 60px;
+  }
+
+  > .TransportButton__check {
+    position: absolute;
+    top: 77%;
+    color: white;
+    font-size: 30px;
+  }
 }
 
 .TransportButton > p {

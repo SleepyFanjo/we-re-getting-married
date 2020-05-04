@@ -75,3 +75,22 @@
     font-size: 22px;
   }
 }
+
+.MealPref__input {
+  resize: none;
+  width: 100%;
+  height: 135px;
+  font-size: 24px;
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  color: $color-secondary;
+  outline: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
+    0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+
+  &:focus {
+    box-shadow: none;
+    border: 2px solid $color-primary;
+  }
+}
