@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0ff1edfac70d08b6ea1c97943716635a",
+    "revision": "674a743d2a7804b28251aba2344e60c8",
     "url": "/index.html"
   },
   {
-    "revision": "27bb144af13f672554e8",
-    "url": "/static/css/main.e4aebf70.chunk.css"
+    "revision": "44b19f4fd076e071e6ac",
+    "url": "/static/css/main.0af1e065.chunk.css"
   },
   {
     "revision": "2d294ffe6fdc8abd1880",
@@ -48,7 +48,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/9.83e6c145.chunk.js"
   },
   {
-    "revision": "27bb144af13f672554e8",
+    "revision": "44b19f4fd076e071e6ac",
     "url": "/static/js/main.218c8414.chunk.js"
   },
   {
@@ -70,6 +70,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "e79bfd88537def476913f3ed52f4f4b3",
     "url": "/static/media/MaterialIcons-Regular.e79bfd88.eot"
+  },
+  {
+    "revision": "8651f495b392162346ae24fbe1920372",
+    "url": "/static/media/arrow-white.8651f495.svg"
   },
   {
     "revision": "aeb9504deea82eb87f936de9a9f6da22",
