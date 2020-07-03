@@ -73,6 +73,22 @@ router.post('/me', async(req, res) => {
     }
 })
 
+router.post('/all', async(req, res) => {
+    try {
+        const { superSecret } = req.body
+        if (superSecret !== process.env.SUPER_SECRET) {
+            res.status(400).send()
+            return
+        }
+
+        const users = await User.find({})
+        res.send(users)
+    } catch (error) {
+        console.log(error)
+        res.status(400).send(error)
+    }
+})
+
 router.get('/me', async(req, res) => {
     try {
         const { jsonWebToken } = req.query

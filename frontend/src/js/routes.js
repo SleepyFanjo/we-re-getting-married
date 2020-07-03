@@ -8,6 +8,7 @@ const Register = LazyWithPreload(() => import('./pages/Register.js'))
 const Registered = LazyWithPreload(() => import('./pages/Registered.js'))
 const Login = LazyWithPreload(() => import('./pages/Login.js'))
 const Logout = LazyWithPreload(() => import('./pages/Logout.js'))
+const Admin = LazyWithPreload(() => import('./pages/Admin.js'))
 
 const routes = [
   { path: '/', exact: true, component: Home, private: true },
@@ -17,7 +18,8 @@ const routes = [
   { path: '/login', exact: false, component: Login, private: false },
   { path: '/logout', exact: false, component: Logout, private: false },
   { path: '/register', exact: false, component: Register, private: false },
-  { path: '/registered', exact: false, component: Registered, private: false }
+  { path: '/registered', exact: false, component: Registered, private: false },
+  { path: '/admin', exact: true, component: Admin, private: false }
 ]
 
 export default routes
