@@ -30,7 +30,7 @@
   background-color: $color-footer;
 }
 
-.Footer--link {
+.Link {
   width: 120px;
   height: 100px;
   display: flex;
@@ -42,7 +42,7 @@
   color: $color-primary;
   position: relative;
 
-  & + .Footer--link {
+  & + .Link {
     &:after {
       content: '';
       position: absolute;
@@ -67,7 +67,7 @@
   }
 }
 
-.Footer--link.selected {
+.Link.selected {
   color: $color-white;
   background: $color-primary;
 
@@ -75,7 +75,7 @@
     content: unset;
   }
 
-  & + .Footer--link:after {
+  & + .Link:after {
     content: unset;
   }
 

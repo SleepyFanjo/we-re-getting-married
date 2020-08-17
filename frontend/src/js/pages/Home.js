@@ -1,7 +1,8 @@
 import React from 'react'
 import Layout from '../components/Layout'
+import Link from '../components/Link'
 import { SimpleLoader } from '../components/Loader'
-import { Link } from 'react-router-dom'
+import { Link as RouterLink } from 'react-router-dom'
 import useCurrentUser from '../hooks/useCurrentUser'
 
 const HomeEmpty = () => {
@@ -11,9 +12,9 @@ const HomeEmpty = () => {
         Tu viens ? Avec qui ?<br />
         Aide nous à organiser ce beau week-end ensemble
       </p>
-      <Link to="/guest" className="Button">
+      <RouterLink to="/guest" className="Button">
         Je viens !
-      </Link>
+      </RouterLink>
     </div>
   )
 }
@@ -26,8 +27,9 @@ const Dashboard = () => {
         <div className="Guest__intro--content">
           Tu peux à tout moment changer tes infos en utilisant le menu en bas de
           page. <br />
-          Nous mettrons cette page à jour avec de nouvelles informations quant
-          elles seront disponibles.
+          <br />
+          Tu peux aussi consulter la Foire Aux Questions ici :
+          <Link to="faq" icon="help_outline" />
         </div>
       </div>
     </>
@@ -35,7 +37,7 @@ const Dashboard = () => {
 }
 
 const Home = () => {
-  const [user, loading, updateUser] = useCurrentUser()
+  const [user, loading] = useCurrentUser()
 
   return (
     <Layout>

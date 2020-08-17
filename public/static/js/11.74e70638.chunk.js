@@ -1,0 +1,2 @@
+(this.webpackJsonpchatbot=this.webpackJsonpchatbot||[]).push([[11],{47:function(t,e,n){"use strict";n.r(e);var o=n(0),a=n.n(o),c=n(10),s=n(6);e.default=function(){return(0,Object(o.useContext)(c.b).setJsonWebToken)(null),localStorage.removeItem("jwtToken"),a.a.createElement(s.a,{to:"/"})}}}]);
+//# sourceMappingURL=11.74e70638.chunk.js.map
