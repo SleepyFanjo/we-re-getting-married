@@ -6,7 +6,7 @@ const FAQ = [
   {
     q: 'Doit-on réserver notre chambre sur place ?',
     a:
-      'Non, toutes les chambres du château sont déjà réservées, un lit confortable vous attend sur place.'
+      'Non, toutes les chambres du château sont déjà réservées, une petite participation pour la chambre vous sera peut-être demandée, on vous dira.'
   },
   {
     q: "Est-ce qu'il y a un dresscode ?",
@@ -26,7 +26,7 @@ const FAQ = [
   {
     q: 'Vous voulez quoi comme cadeau ?',
     a:
-      "RIEN ! Il n'y a pas de liste de mariage, on vous a vous et c'est déjà pas mal. Pour ceux que ça perturbe, on mettra peut-être une boîte sur place : on ira se faire une journée au SPA avec l'argent"
+      "RIEN ! Il n'y a pas de liste de mariage, on vous a vous et c'est déjà pas mal. Pour ceux que ça perturbe, on mettra peut-être une boîte sur place : on se fera des vacances avec quand on pourra de nouveau voyager"
   },
   {
     q: "Y aura-t-il une cérémonie à la mairie ou à l'église ?",
